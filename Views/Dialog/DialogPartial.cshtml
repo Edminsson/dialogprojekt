@@ -1,6 +1,12 @@
 ﻿<div ng-controller="dialogCtrl">
     <div>
-        <label>Personens namn: </label>  <input type="text" name="personnamn" ng-model="vm.person.name" />
-        <div><button ng-click="vm.loggaNamn()">Logga namn</button></div>
+        <div>
+            <label>Personens namn: </label>  <input type="text" name="personnamn" ng-model="vm.person.name" />
+        </div>
+        <div>
+            <label>Favoritlag</label> <select ng-model="vm.person.favoriteTeam" ng-options="fv for fv in vm.favoriteTeams"></select>
+        </div>
+        
+        <div><button ng-click="vm.loggaPerson()">Logga person</button></div>
     </div>
 </div>

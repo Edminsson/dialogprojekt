@@ -13,10 +13,14 @@
                 };
             });
             app.factory('personFactory', function () {
-                var _persons = [{ name: 'anders', favoriteTeam: 'barcelona' }, { name: 'bertil', favoriteTeam: 'Real Madrid' }];
+                var _persons = [{ name: 'anders', favoriteTeam: 'barcelona' }, { name: 'bertil', favoriteTeam: 'Milan' }];
+                var _favoriteTeams = ['barcelona', 'Milan', 'PSG', 'Inter', 'Juventus'];
                 return {
                     getFirstPerson: function () {
                         return _persons[0];
+                    },
+                    getFavoriteTeams: function () {
+                        return _favoriteTeams;
                     }
                 };
             });

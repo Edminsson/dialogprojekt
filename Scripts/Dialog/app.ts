@@ -9,10 +9,14 @@
                 }
             });
             app.factory('personFactory', () => {
-                var _persons: IPerson[] = [{name:'anders', favoriteTeam:'barcelona'}, {name:'bertil',favoriteTeam:'Real Madrid'}];
+                var _persons: IPerson[] = [{ name: 'anders', favoriteTeam: 'barcelona' }, { name: 'bertil', favoriteTeam: 'Milan' }];
+                var _favoriteTeams = ['barcelona','Milan','PSG','Inter','Juventus'];
                 return {
                     getFirstPerson: () => {
                         return _persons[0];
+                    },
+                    getFavoriteTeams: () => {
+                        return _favoriteTeams;
                     }
                 }
             });

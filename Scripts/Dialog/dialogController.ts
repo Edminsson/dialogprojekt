@@ -18,6 +18,7 @@
     }
     export class dialogController {
         person: IPerson;
+        favoriteTeams:any[];
         templateUrl: string;
         dialogen: TheDialog.dialog;
         controllerType: string = 'dialogController';
@@ -26,6 +27,7 @@
             $s.vm = this;
             $s.vm.templateUrl = $o.templateUrl;
             $s.vm.person = $pf.getFirstPerson();
+            $s.vm.favoriteTeams = $pf.getFavoriteTeams();
         }
         skapaDialog() {
             this.dialogen = new TheDialog.dialog('thedialog', this.templateUrl);
@@ -33,14 +35,19 @@
             this.dialogen.open();
         }
         kompileraHtml() {
-            this.$timeout(() => {
-                this.$s.$apply(() => { this.$compile(this.dialogen.$element)(this.$s) });
-                this.dialogen.loggaElementId();
-                console.log('kompilerat element med id: '+this.dialogen.$element.prop('id'));
-            }, 1000);
+            //this.$timeout(() => {
+            //    this.$s.$apply(() => { this.$compile(this.dialogen.$element)(this.$s) });
+            //    this.dialogen.loggaElementId();
+            //    console.log('kompilerat element med id: '+this.dialogen.$element.prop('id'));
+            //}, 1000);
+
+            this.$s.$apply(() => { this.$compile(this.dialogen.$element)(this.$s) });
+            //this.$compile(this.dialogen.$element)(this.$s);
         }
-        loggaNamn() {
-            console.log('Personens namn: '+this.$s.vm.person.name);
+        loggaPerson() {
+            var personen = 'Personens namn: ' + this.$s.vm.person.name;
+            var laget = ' Favoritlaget: ' + this.$s.vm.person.favoriteTeam; 
+            console.log(personen + laget);
         }
     }
 
