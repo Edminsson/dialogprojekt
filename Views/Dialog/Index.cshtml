@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Dialog</h2>
+
+<div id="dialogWrapper" ng-controller="mainCtrl">
+    <div>Angular check: {{1+1}}</div>
+    <div>MainCtrl: {{vm.controllerType}}</div>
+    <div ng-controller="dialogCtrl">
+        <div>DialogCtrl: {{vm.controllerType}}</div>
+        <div>TemplateUrl: {{vm.templateUrl}}</div>
+        <button ng-click="vm.skapaDialog()">Skapa dialog</button>
+        @*<button data-dialog-knapp="" ng-click="vm.skapaDialog()">Skapa dialog</button>*@
+    </div>
+</div>
+
+
+@section scripts {
+
+    <script src="~/Scripts/jquery-ui-1.10.4.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/Dialog/utils.js"></script>
+    <script src="~/Scripts/Dialog/dialog.js"></script>
+    <script src="~/Scripts/Dialog/dialogController.js"></script>
+    <script src="~/Scripts/Dialog/dialogDirective.js"></script>
+    <script src="~/Scripts/Dialog/app.js"></script>
+    <script>
+        $(function () {
+            console.log('laddar');
+            var appen = new TheDialog.DialogApp('@Url.Action("DialogPartial","Dialog")');
+            appen.bootstrap();
+        });
+    </script>
+
+}
+
